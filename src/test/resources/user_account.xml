@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<dataset>
+<user_account id="1" email="paperino@mouse.com" enabled="1" firstName="Paperino" lastName="Donald" password="1" attempt="0" state="1" />
+<user_account id="2" email="miky@mouse.com" enabled="1" firstName="Miky" lastName="Mouse" password="1" attempt="0" state="1" />
+<user_account id="3" email="pippo@mouse.com" enabled="1" firstName="Pippo" lastName="Goofy" password="1" attempt="0" state="1" />
+<user_account id="4" email="pluto@mouse.com" enabled="1" firstName="Pluto" lastName="Bracco" password="1" attempt="0" state="1" />
+</dataset>

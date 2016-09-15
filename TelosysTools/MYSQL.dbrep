@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Telosys Database Repository --><root>
+<tableList databaseId="0" databaseName="MYSQL" databaseProductName="MySQL" generation="2016-07-29 09:46:43">
+<table catalog="torneo" databaseType="TABLE" javaBean="Categorie" name="categorie" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="categoria" dbNotNull="false" dbPosition="2" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="categoria" javaType="java.lang.String" jdbcTypeCode="1" label="Categoria" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="0" dbName="annomin" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="annomin" javaType="java.lang.Integer" jdbcTypeCode="4" label="Annomin" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="annomax" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="annomax" javaType="java.lang.Integer" jdbcTypeCode="4" label="Annomax" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="punti" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="punti" javaType="java.lang.Integer" jdbcTypeCode="4" label="Punti" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="puntimax" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="puntimax" javaType="java.lang.Integer" jdbcTypeCode="4" label="Puntimax" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="nrset" dbNotNull="false" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="nrset" javaType="java.lang.Integer" jdbcTypeCode="4" label="Nrset" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="note" dbNotNull="false" dbPosition="8" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="note" javaType="java.lang.String" jdbcTypeCode="12" label="Note" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="1" dbName="active" dbNotNull="true" dbPosition="9" dbSize="0" dbTypeName="BIT" inputType="checkbox" javaName="active" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Active" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="categoriecol" dbNotNull="false" dbPosition="10" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="categoriecol" javaType="java.lang.String" jdbcTypeCode="12" label="Categoriecol" maxLength="45" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_categorie1" id="LINK_FK_fk_iscrizioni_categorie1_I" inverseSideOf="LINK_FK_fk_iscrizioni_categorie1_O" javaName="listOfIscrizioni" javaType="java.util.List" joinTableName="" mappedBy="categorie" optional="UNDEFINED" owningSide="false" sourceTableName="categorie" targetEntity="Iscrizioni" targetTableName="iscrizioni" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_categorieAccept_categorie1" id="LINK_FK_fk_categorieAccept_categorie1_I" inverseSideOf="LINK_FK_fk_categorieAccept_categorie1_O" javaName="listOfCategorieaccept" javaType="java.util.List" joinTableName="" mappedBy="categorie" optional="UNDEFINED" owningSide="false" sourceTableName="categorie" targetEntity="Categorieaccept" targetTableName="categorieaccept" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Categorieaccept" name="categorieaccept" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="torneo_id" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="torneoId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Torneo Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="categorie_id" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="categorieId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Categorie Id" notNull="true" selected="true"/>
+<fk name="fk_categorieAccept_categorie1">
+<fkcol colname="categorie_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="categorieaccept" tableref="categorie" updaterule="3"/>
+</fk>
+<fk name="fk_categorieAccept_torneo1">
+<fkcol colname="torneo_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="categorieaccept" tableref="torneo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_categorieAccept_categorie1" id="LINK_FK_fk_categorieAccept_categorie1_O" inverseSideOf="" javaName="categorie" javaType="Categorie" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="categorieaccept" targetEntity="Categorie" targetTableName="categorie" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="categorie_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_categorieAccept_torneo1" id="LINK_FK_fk_categorieAccept_torneo1_O" inverseSideOf="" javaName="torneo" javaType="Torneo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="categorieaccept" targetEntity="Torneo" targetTableName="torneo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="torneo_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Friend" name="friend" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="torneo_id" dbNotNull="false" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="torneoId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Torneo Id" notNull="false" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="sentInvitation" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="DATE" inputType="date" javaName="sentinvitation" javaType="java.util.Date" jdbcTypeCode="91" label="Sentinvitation" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="host" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="host" javaType="java.lang.Integer" jdbcTypeCode="4" label="Host" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="guest" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="guest" javaType="java.lang.Integer" jdbcTypeCode="4" label="Guest" notNull="true" selected="true"/>
+<fk name="fk_friend_societa1">
+<fkcol colname="host" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="friend" tableref="societa" updaterule="3"/>
+</fk>
+<fk name="fk_friend_societa2">
+<fkcol colname="guest" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="friend" tableref="societa" updaterule="3"/>
+</fk>
+<fk name="fk_friend_torneo1">
+<fkcol colname="torneo_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="friend" tableref="torneo" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_torneo1" id="LINK_FK_fk_friend_torneo1_O" inverseSideOf="" javaName="torneo" javaType="Torneo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="friend" targetEntity="Torneo" targetTableName="torneo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="torneo_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_societa2" id="LINK_FK_fk_friend_societa2_O" inverseSideOf="" javaName="societa" javaType="Societa" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="friend" targetEntity="Societa" targetTableName="societa" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="guest" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_societa1" id="LINK_FK_fk_friend_societa1_O" inverseSideOf="" javaName="societa" javaType="Societa" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="friend" targetEntity="Societa" targetTableName="societa" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="host" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Gironi" name="gironi" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="descrizione" dbNotNull="false" dbPosition="2" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="1" label="Descrizione" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="teamnr" dbNotNull="false" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="teamnr" javaType="java.lang.Integer" jdbcTypeCode="4" label="Teamnr" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="playtime" dbNotNull="false" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="playtime" javaType="java.lang.Integer" jdbcTypeCode="4" label="Playtime" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="campo" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="campo" javaType="java.lang.Integer" jdbcTypeCode="4" label="Campo" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="livello" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="livello" javaType="java.lang.Integer" jdbcTypeCode="4" label="Livello" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="eliminatorie" dbNotNull="false" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="eliminatorie" javaType="java.lang.Integer" jdbcTypeCode="4" label="Eliminatorie" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="perdente" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="INT" inputType="number" javaName="perdente" javaType="java.lang.Integer" jdbcTypeCode="4" label="Perdente" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="iscrizioni_id" dbNotNull="true" dbPosition="9" dbSize="10" dbTypeName="INT" inputType="number" javaName="iscrizioniId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Iscrizioni Id" notNull="true" selected="true"/>
+<fk name="fk_gironi_iscrizioni1">
+<fkcol colname="iscrizioni_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="gironi" tableref="iscrizioni" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_gironi1" id="LINK_FK_fk_match_gironi1_I" inverseSideOf="LINK_FK_fk_match_gironi1_O" javaName="listOfMatch" javaType="java.util.List" joinTableName="" mappedBy="gironi" optional="UNDEFINED" owningSide="false" sourceTableName="gironi" targetEntity="Match" targetTableName="match" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_gironi_iscrizioni1" id="LINK_FK_fk_gironi_iscrizioni1_O" inverseSideOf="" javaName="iscrizioni" javaType="Iscrizioni" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="gironi" targetEntity="Iscrizioni" targetTableName="iscrizioni" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="iscrizioni_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_team_gironi1" id="LINK_FK_fk_team_gironi1_I" inverseSideOf="LINK_FK_fk_team_gironi1_O" javaName="listOfTeam" javaType="java.util.List" joinTableName="" mappedBy="gironi" optional="UNDEFINED" owningSide="false" sourceTableName="gironi" targetEntity="Team" targetTableName="team" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Iscrizioni" name="iscrizioni" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="torneo_id" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="torneoId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Torneo Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="societa_id" dbNotNull="true" dbPosition="3" dbSize="10" dbTypeName="INT" inputType="number" javaName="societaId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Societa Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="categorie_id" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="INT" inputType="number" javaName="categorieId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Categorie Id" notNull="true" selected="true"/>
+<column dbDefaultValue="0" dbName="nrteam" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="nrteam" javaType="java.lang.Integer" jdbcTypeCode="4" label="Nrteam" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="nrplayer" dbNotNull="false" dbPosition="6" dbSize="10" dbTypeName="INT" inputType="number" javaName="nrplayer" javaType="java.lang.Integer" jdbcTypeCode="4" label="Nrplayer" notNull="false" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="created" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="DATE" inputType="date" javaName="created" javaType="java.util.Date" jdbcTypeCode="91" label="Created" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="accompagnatore" dbNotNull="false" dbPosition="8" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="accompagnatore" javaType="java.lang.String" jdbcTypeCode="12" label="Accompagnatore" maxLength="45" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="createdBy" dbNotNull="true" dbPosition="9" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="createdby" javaType="java.lang.Long" jdbcTypeCode="-5" label="Createdby" notNull="true" selected="true"/>
+<fk name="fk_iscrizioni_categorie1">
+<fkcol colname="categorie_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="iscrizioni" tableref="categorie" updaterule="3"/>
+</fk>
+<fk name="fk_iscrizioni_societa1">
+<fkcol colname="societa_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="iscrizioni" tableref="societa" updaterule="3"/>
+</fk>
+<fk name="fk_iscrizioni_torneo1">
+<fkcol colname="torneo_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="iscrizioni" tableref="torneo" updaterule="3"/>
+</fk>
+<fk name="fk_iscrizioni_user_account1">
+<fkcol colname="createdBy" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="iscrizioni" tableref="user_account" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_user_account1" id="LINK_FK_fk_iscrizioni_user_account1_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="iscrizioni" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="createdBy" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_categorie1" id="LINK_FK_fk_iscrizioni_categorie1_O" inverseSideOf="" javaName="categorie" javaType="Categorie" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="iscrizioni" targetEntity="Categorie" targetTableName="categorie" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="categorie_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_societa1" id="LINK_FK_fk_iscrizioni_societa1_O" inverseSideOf="" javaName="societa" javaType="Societa" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="iscrizioni" targetEntity="Societa" targetTableName="societa" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="societa_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_gironi_iscrizioni1" id="LINK_FK_fk_gironi_iscrizioni1_I" inverseSideOf="LINK_FK_fk_gironi_iscrizioni1_O" javaName="listOfGironi" javaType="java.util.List" joinTableName="" mappedBy="iscrizioni" optional="UNDEFINED" owningSide="false" sourceTableName="iscrizioni" targetEntity="Gironi" targetTableName="gironi" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_torneo1" id="LINK_FK_fk_iscrizioni_torneo1_O" inverseSideOf="" javaName="torneo" javaType="Torneo" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="iscrizioni" targetEntity="Torneo" targetTableName="torneo" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="torneo_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Match" name="match" schema="">
+<column dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="team_a" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="teamA" javaType="java.lang.Integer" jdbcTypeCode="4" label="Team A" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="punti1team_a" dbNotNull="false" dbPosition="3" dbSize="5" dbTypeName="SMALLINT" inputType="number" javaName="punti1teamA" javaType="java.lang.Short" jdbcTypeCode="5" label="Punti1team A" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="punti2team_a" dbNotNull="false" dbPosition="4" dbSize="5" dbTypeName="SMALLINT" inputType="number" javaName="punti2teamA" javaType="java.lang.Short" jdbcTypeCode="5" label="Punti2team A" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="team_b" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="teamB" javaType="java.lang.Integer" jdbcTypeCode="4" label="Team B" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="punti1team_b" dbNotNull="false" dbPosition="6" dbSize="5" dbTypeName="SMALLINT" inputType="number" javaName="punti1teamB" javaType="java.lang.Short" jdbcTypeCode="5" label="Punti1team B" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="punti2team_b" dbNotNull="false" dbPosition="7" dbSize="5" dbTypeName="SMALLINT" inputType="number" javaName="punti2teamB" javaType="java.lang.Short" jdbcTypeCode="5" label="Punti2team B" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="campo" dbNotNull="false" dbPosition="8" dbSize="40" dbTypeName="VARCHAR" inputType="text" javaName="campo" javaType="java.lang.String" jdbcTypeCode="12" label="Campo" maxLength="40" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="arbitro" dbNotNull="false" dbPosition="9" dbSize="40" dbTypeName="VARCHAR" inputType="text" javaName="arbitro" javaType="java.lang.String" jdbcTypeCode="12" label="Arbitro" maxLength="40" notNull="false" selected="true"/>
+<column dateType="DT" dbDefaultValue="" dbName="inizio" dbNotNull="false" dbPosition="10" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="inizio" javaType="java.util.Date" jdbcTypeCode="93" label="Inizio" notNull="false" selected="true"/>
+<column dbDefaultValue="0" dbName="progressivo" dbNotNull="true" dbPosition="11" dbSize="5" dbTypeName="SMALLINT" inputType="number" javaName="progressivo" javaType="java.lang.Short" jdbcTypeCode="5" label="Progressivo" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="gironi_id" dbNotNull="true" dbPosition="12" dbSize="10" dbTypeName="INT" inputType="number" javaName="gironiId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Gironi Id" notNull="true" selected="true"/>
+<fk name="fk_match_gironi1">
+<fkcol colname="gironi_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="match" tableref="gironi" updaterule="3"/>
+</fk>
+<fk name="fk_match_team1">
+<fkcol colname="team_a" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="match" tableref="team" updaterule="3"/>
+</fk>
+<fk name="fk_match_team2">
+<fkcol colname="team_b" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="match" tableref="team" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_team2" id="LINK_FK_fk_match_team2_O" inverseSideOf="" javaName="team" javaType="Team" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="match" targetEntity="Team" targetTableName="team" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="team_b" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_gironi1" id="LINK_FK_fk_match_gironi1_O" inverseSideOf="" javaName="gironi" javaType="Gironi" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="match" targetEntity="Gironi" targetTableName="gironi" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="gironi_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_team1" id="LINK_FK_fk_match_team1_O" inverseSideOf="" javaName="team" javaType="Team" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="match" targetEntity="Team" targetTableName="team" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="team_a" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Passwordresettoken" name="passwordresettoken" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dateType="DT" dbDefaultValue="" dbName="expiryDate" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="expirydate" javaType="java.util.Date" jdbcTypeCode="93" label="Expirydate" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="token" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="token" javaType="java.lang.String" jdbcTypeCode="12" label="Token" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="user_id" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="userId" javaType="java.lang.Long" jdbcTypeCode="-5" label="User Id" notNull="true" selected="true"/>
+<fk name="FK_rvxqlsowkgpgscib3isbbosci">
+<fkcol colname="user_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="passwordresettoken" tableref="user_account" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_rvxqlsowkgpgscib3isbbosci" id="LINK_FK_FK_rvxqlsowkgpgscib3isbbosci_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="passwordresettoken" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="user_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="People" name="people" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="person_id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="personId" javaType="java.lang.Long" jdbcTypeCode="-5" label="Person Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="first_name" dbNotNull="false" dbPosition="2" dbSize="20" dbTypeName="VARCHAR" inputType="text" javaName="firstName" javaType="java.lang.String" jdbcTypeCode="12" label="First Name" maxLength="20" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="last_name" dbNotNull="false" dbPosition="3" dbSize="20" dbTypeName="VARCHAR" inputType="text" javaName="lastName" javaType="java.lang.String" jdbcTypeCode="12" label="Last Name" maxLength="20" notNull="false" selected="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Privilege" name="privilege" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="name" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="255" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_8e40d67gs32l8eerawr469awv" id="LINK_FK_FK_8e40d67gs32l8eerawr469awv_I" inverseSideOf="LINK_FK_FK_8e40d67gs32l8eerawr469awv_O" javaName="listOfRolesPrivileges" javaType="java.util.List" joinTableName="" mappedBy="privilege" optional="UNDEFINED" owningSide="false" sourceTableName="privilege" targetEntity="RolesPrivileges" targetTableName="roles_privileges" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Role" name="role" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="name" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="name" javaType="java.lang.String" jdbcTypeCode="12" label="Name" maxLength="255" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_6qp3whkb1qp74p2k400ewsbcq" id="LINK_FK_FK_6qp3whkb1qp74p2k400ewsbcq_I" inverseSideOf="LINK_FK_FK_6qp3whkb1qp74p2k400ewsbcq_O" javaName="listOfUserAccountRole" javaType="java.util.List" joinTableName="" mappedBy="role" optional="UNDEFINED" owningSide="false" sourceTableName="role" targetEntity="UserAccountRole" targetTableName="user_account_role" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_33w32xb8jfm3ocotvvecs3kuj" id="LINK_FK_FK_33w32xb8jfm3ocotvvecs3kuj_I" inverseSideOf="LINK_FK_FK_33w32xb8jfm3ocotvvecs3kuj_O" javaName="listOfRolesPrivileges" javaType="java.util.List" joinTableName="" mappedBy="role" optional="UNDEFINED" owningSide="false" sourceTableName="role" targetEntity="RolesPrivileges" targetTableName="roles_privileges" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_k2mq1ee4ob6uw649wgaus1ate" id="LINK_FK_FK_k2mq1ee4ob6uw649wgaus1ate_I" inverseSideOf="LINK_FK_FK_k2mq1ee4ob6uw649wgaus1ate_O" javaName="listOfUsersRoles" javaType="java.util.List" joinTableName="" mappedBy="role" optional="UNDEFINED" owningSide="false" sourceTableName="role" targetEntity="UsersRoles" targetTableName="users_roles" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="RolesPrivileges" name="roles_privileges" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="role_id" dbNotNull="true" dbPosition="1" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="roleId" javaType="java.lang.Long" jdbcTypeCode="-5" label="Role Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="privilege_id" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="privilegeId" javaType="java.lang.Long" jdbcTypeCode="-5" label="Privilege Id" notNull="true" selected="true"/>
+<fk name="FK_33w32xb8jfm3ocotvvecs3kuj">
+<fkcol colname="role_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="roles_privileges" tableref="role" updaterule="3"/>
+</fk>
+<fk name="FK_8e40d67gs32l8eerawr469awv">
+<fkcol colname="privilege_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="roles_privileges" tableref="privilege" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_8e40d67gs32l8eerawr469awv" id="LINK_FK_FK_8e40d67gs32l8eerawr469awv_O" inverseSideOf="" javaName="privilege" javaType="Privilege" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="roles_privileges" targetEntity="Privilege" targetTableName="privilege" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="privilege_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_33w32xb8jfm3ocotvvecs3kuj" id="LINK_FK_FK_33w32xb8jfm3ocotvvecs3kuj_O" inverseSideOf="" javaName="role" javaType="Role" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="roles_privileges" targetEntity="Role" targetTableName="role" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="role_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Societa" name="societa" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="nome" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="nome" javaType="java.lang.String" jdbcTypeCode="1" label="Nome" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="responsabile" dbNotNull="false" dbPosition="3" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="responsabile" javaType="java.lang.String" jdbcTypeCode="1" label="Responsabile" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="via" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="via" javaType="java.lang.String" jdbcTypeCode="1" label="Via" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="cap" dbNotNull="false" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="cap" javaType="java.lang.Integer" jdbcTypeCode="4" label="Cap" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="citta" dbNotNull="false" dbPosition="6" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="citta" javaType="java.lang.String" jdbcTypeCode="1" label="Citta" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="provincia" dbNotNull="false" dbPosition="7" dbSize="5" dbTypeName="CHAR" inputType="text" javaName="provincia" javaType="java.lang.String" jdbcTypeCode="1" label="Provincia" maxLength="5" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="nazione" dbNotNull="false" dbPosition="8" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="nazione" javaType="java.lang.String" jdbcTypeCode="1" label="Nazione" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="tel" dbNotNull="false" dbPosition="9" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="tel" javaType="java.lang.String" jdbcTypeCode="1" label="Tel" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="fax" dbNotNull="false" dbPosition="10" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="fax" javaType="java.lang.String" jdbcTypeCode="1" label="Fax" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="cellulare" dbNotNull="false" dbPosition="11" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="cellulare" javaType="java.lang.String" jdbcTypeCode="1" label="Cellulare" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="email" dbNotNull="false" dbPosition="12" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="1" label="Email" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="url" dbNotNull="false" dbPosition="13" dbSize="30" dbTypeName="CHAR" inputType="text" javaName="url" javaType="java.lang.String" jdbcTypeCode="1" label="Url" maxLength="30" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="logo" dbNotNull="false" dbPosition="14" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="logo" javaType="java.lang.String" jdbcTypeCode="12" label="Logo" maxLength="45" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="user_account_id" dbNotNull="true" dbPosition="15" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="userAccountId" javaType="java.lang.Long" jdbcTypeCode="-5" label="User Account Id" notNull="true" selected="true"/>
+<fk name="fk_societa_user_account1">
+<fkcol colname="user_account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="societa" tableref="user_account" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_societa1" id="LINK_FK_fk_friend_societa1_I" inverseSideOf="LINK_FK_fk_friend_societa1_O" javaName="listOfFriend" javaType="java.util.List" joinTableName="" mappedBy="societa" optional="UNDEFINED" owningSide="false" sourceTableName="societa" targetEntity="Friend" targetTableName="friend" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_societa1" id="LINK_FK_fk_iscrizioni_societa1_I" inverseSideOf="LINK_FK_fk_iscrizioni_societa1_O" javaName="listOfIscrizioni" javaType="java.util.List" joinTableName="" mappedBy="societa" optional="UNDEFINED" owningSide="false" sourceTableName="societa" targetEntity="Iscrizioni" targetTableName="iscrizioni" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_societa_user_account1" id="LINK_FK_fk_societa_user_account1_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="societa" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="user_account_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_torneo_societa" id="LINK_FK_fk_torneo_societa_I" inverseSideOf="LINK_FK_fk_torneo_societa_O" javaName="listOfTorneo" javaType="java.util.List" joinTableName="" mappedBy="societa" optional="UNDEFINED" owningSide="false" sourceTableName="societa" targetEntity="Torneo" targetTableName="torneo" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_societa2" id="LINK_FK_fk_friend_societa2_I" inverseSideOf="LINK_FK_fk_friend_societa2_O" javaName="listOfFriend" javaType="java.util.List" joinTableName="" mappedBy="societa" optional="UNDEFINED" owningSide="false" sourceTableName="societa" targetEntity="Friend" targetTableName="friend" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Team" name="team" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="nome" dbNotNull="false" dbPosition="2" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="nome" javaType="java.lang.String" jdbcTypeCode="1" label="Nome" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="citta" dbNotNull="false" dbPosition="3" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="citta" javaType="java.lang.String" jdbcTypeCode="1" label="Citta" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="accompagnatore" dbNotNull="false" dbPosition="4" dbSize="50" dbTypeName="CHAR" inputType="text" javaName="accompagnatore" javaType="java.lang.String" jdbcTypeCode="1" label="Accompagnatore" maxLength="50" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="gironi_id" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="INT" inputType="number" javaName="gironiId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Gironi Id" notNull="true" selected="true"/>
+<fk name="fk_team_gironi1">
+<fkcol colname="gironi_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="team" tableref="gironi" updaterule="3"/>
+</fk>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_team1" id="LINK_FK_fk_match_team1_I" inverseSideOf="LINK_FK_fk_match_team1_O" javaName="listOfMatch" javaType="java.util.List" joinTableName="" mappedBy="team" optional="UNDEFINED" owningSide="false" sourceTableName="team" targetEntity="Match" targetTableName="match" used="true"/>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_team_gironi1" id="LINK_FK_fk_team_gironi1_O" inverseSideOf="" javaName="gironi" javaType="Gironi" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="team" targetEntity="Gironi" targetTableName="gironi" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="gironi_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_match_team2" id="LINK_FK_fk_match_team2_I" inverseSideOf="LINK_FK_fk_match_team2_O" javaName="listOfMatch" javaType="java.util.List" joinTableName="" mappedBy="team" optional="UNDEFINED" owningSide="false" sourceTableName="team" targetEntity="Match" targetTableName="match" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Torneo" name="torneo" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="10" dbTypeName="INT" inputType="number" javaName="id" javaType="java.lang.Integer" jdbcTypeCode="4" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="societaMgr_id" dbNotNull="true" dbPosition="2" dbSize="10" dbTypeName="INT" inputType="number" javaName="societamgrId" javaType="java.lang.Integer" jdbcTypeCode="4" label="Societamgr Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="descrizione" dbNotNull="false" dbPosition="3" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="descrizione" javaType="java.lang.String" jdbcTypeCode="12" label="Descrizione" maxLength="45" notNull="false" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="inizio" dbNotNull="true" dbPosition="4" dbSize="10" dbTypeName="DATE" inputType="date" javaName="inizio" javaType="java.util.Date" jdbcTypeCode="91" label="Inizio" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="aperturaIscrizioni" dbNotNull="true" dbPosition="5" dbSize="10" dbTypeName="DATE" inputType="date" javaName="aperturaiscrizioni" javaType="java.util.Date" jdbcTypeCode="91" label="Aperturaiscrizioni" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="chiusuraIscrizioni" dbNotNull="true" dbPosition="6" dbSize="10" dbTypeName="DATE" inputType="date" javaName="chiusuraiscrizioni" javaType="java.util.Date" jdbcTypeCode="91" label="Chiusuraiscrizioni" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="note" dbNotNull="false" dbPosition="7" dbSize="2147483647" dbTypeName="LONGTEXT" inputType="text" javaName="note" javaType="java.lang.String" jdbcTypeCode="-1" label="Note" longText="true" maxLength="2147483647" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="luogo" dbNotNull="false" dbPosition="8" dbSize="45" dbTypeName="VARCHAR" inputType="text" javaName="luogo" javaType="java.lang.String" jdbcTypeCode="12" label="Luogo" maxLength="45" notNull="false" selected="true"/>
+<fk name="fk_torneo_societa">
+<fkcol colname="societaMgr_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="torneo" tableref="societa" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="fk_torneo_societa" id="LINK_FK_fk_torneo_societa_O" inverseSideOf="" javaName="societa" javaType="Societa" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="torneo" targetEntity="Societa" targetTableName="societa" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="societaMgr_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_categorieAccept_torneo1" id="LINK_FK_fk_categorieAccept_torneo1_I" inverseSideOf="LINK_FK_fk_categorieAccept_torneo1_O" javaName="listOfCategorieaccept" javaType="java.util.List" joinTableName="" mappedBy="torneo" optional="UNDEFINED" owningSide="false" sourceTableName="torneo" targetEntity="Categorieaccept" targetTableName="categorieaccept" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_torneo1" id="LINK_FK_fk_iscrizioni_torneo1_I" inverseSideOf="LINK_FK_fk_iscrizioni_torneo1_O" javaName="listOfIscrizioni" javaType="java.util.List" joinTableName="" mappedBy="torneo" optional="UNDEFINED" owningSide="false" sourceTableName="torneo" targetEntity="Iscrizioni" targetTableName="iscrizioni" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_friend_torneo1" id="LINK_FK_fk_friend_torneo1_I" inverseSideOf="LINK_FK_fk_friend_torneo1_O" javaName="listOfFriend" javaType="java.util.List" joinTableName="" mappedBy="torneo" optional="UNDEFINED" owningSide="false" sourceTableName="torneo" targetEntity="Friend" targetTableName="friend" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="UserAccount" name="user_account" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="email" dbNotNull="false" dbPosition="2" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="email" javaType="java.lang.String" jdbcTypeCode="12" label="Email" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="enabled" dbNotNull="true" dbPosition="3" dbSize="1" dbTypeName="BIT" inputType="checkbox" javaName="enabled" javaType="java.lang.Boolean" jdbcTypeCode="-7" label="Enabled" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbName="firstName" dbNotNull="false" dbPosition="4" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="firstname" javaType="java.lang.String" jdbcTypeCode="12" label="Firstname" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="lastName" dbNotNull="false" dbPosition="5" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="lastname" javaType="java.lang.String" jdbcTypeCode="12" label="Lastname" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="password" dbNotNull="false" dbPosition="6" dbSize="60" dbTypeName="VARCHAR" inputType="text" javaName="password" javaType="java.lang.String" jdbcTypeCode="12" label="Password" maxLength="60" notNull="false" selected="true"/>
+<column dbDefaultValue="0" dbName="attempt" dbNotNull="true" dbPosition="7" dbSize="10" dbTypeName="INT" inputType="number" javaName="attempt" javaType="java.lang.Integer" jdbcTypeCode="4" label="Attempt" notNull="true" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="last_access" dbNotNull="false" dbPosition="8" dbSize="10" dbTypeName="DATE" inputType="date" javaName="lastAccess" javaType="java.util.Date" jdbcTypeCode="91" label="Last Access" notNull="false" selected="true"/>
+<column dateType="D" dbDefaultValue="" dbName="last_change_password" dbNotNull="false" dbPosition="9" dbSize="10" dbTypeName="DATE" inputType="date" javaName="lastChangePassword" javaType="java.util.Date" jdbcTypeCode="91" label="Last Change Password" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="state" dbNotNull="false" dbPosition="10" dbSize="20" dbTypeName="VARCHAR" inputType="text" javaName="state" javaType="java.lang.String" jdbcTypeCode="12" label="State" maxLength="20" notNull="false" selected="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_4tdibtpdu7jm3aaokhe7xi2dv" id="LINK_FK_FK_4tdibtpdu7jm3aaokhe7xi2dv_I" inverseSideOf="LINK_FK_FK_4tdibtpdu7jm3aaokhe7xi2dv_O" javaName="listOfUserAccountRole" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="UserAccountRole" targetTableName="user_account_role" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_1hjw31qvltj7v3wb5o31jsrd8" id="LINK_FK_FK_1hjw31qvltj7v3wb5o31jsrd8_I" inverseSideOf="LINK_FK_FK_1hjw31qvltj7v3wb5o31jsrd8_O" javaName="listOfUsersRoles" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="UsersRoles" targetTableName="users_roles" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_rvxqlsowkgpgscib3isbbosci" id="LINK_FK_FK_rvxqlsowkgpgscib3isbbosci_I" inverseSideOf="LINK_FK_FK_rvxqlsowkgpgscib3isbbosci_O" javaName="listOfPasswordresettoken" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="Passwordresettoken" targetTableName="passwordresettoken" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_iscrizioni_user_account1" id="LINK_FK_fk_iscrizioni_user_account1_I" inverseSideOf="LINK_FK_fk_iscrizioni_user_account1_O" javaName="listOfIscrizioni" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="Iscrizioni" targetTableName="iscrizioni" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="fk_societa_user_account1" id="LINK_FK_fk_societa_user_account1_I" inverseSideOf="LINK_FK_fk_societa_user_account1_O" javaName="listOfSocieta" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="Societa" targetTableName="societa" used="true"/>
+<link cardinality="OneToMany" cascade="" fetch="DEFAULT" foreignKeyName="FK_VERIFY_USER" id="LINK_FK_FK_VERIFY_USER_I" inverseSideOf="LINK_FK_FK_VERIFY_USER_O" javaName="listOfVerificationtoken" javaType="java.util.List" joinTableName="" mappedBy="userAccount" optional="UNDEFINED" owningSide="false" sourceTableName="user_account" targetEntity="Verificationtoken" targetTableName="verificationtoken" used="true"/>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="UserAccountRole" name="user_account_role" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="user_account_id" dbNotNull="true" dbPosition="1" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="userAccountId" javaType="java.lang.Long" jdbcTypeCode="-5" label="User Account Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="listOfRoles_id" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="listofrolesId" javaType="java.lang.Long" jdbcTypeCode="-5" label="Listofroles Id" notNull="true" selected="true"/>
+<fk name="FK_4tdibtpdu7jm3aaokhe7xi2dv">
+<fkcol colname="user_account_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="user_account_role" tableref="user_account" updaterule="3"/>
+</fk>
+<fk name="FK_6qp3whkb1qp74p2k400ewsbcq">
+<fkcol colname="listOfRoles_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="user_account_role" tableref="role" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_6qp3whkb1qp74p2k400ewsbcq" id="LINK_FK_FK_6qp3whkb1qp74p2k400ewsbcq_O" inverseSideOf="" javaName="role" javaType="Role" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="user_account_role" targetEntity="Role" targetTableName="role" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="listOfRoles_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_4tdibtpdu7jm3aaokhe7xi2dv" id="LINK_FK_FK_4tdibtpdu7jm3aaokhe7xi2dv_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="user_account_role" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="user_account_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="UsersRoles" name="users_roles" schema="">
+<column dbDefaultValue="" dbForeignKey="true" dbName="user_id" dbNotNull="true" dbPosition="1" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="userId" javaType="java.lang.Long" jdbcTypeCode="-5" label="User Id" notNull="true" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="role_id" dbNotNull="true" dbPosition="2" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="roleId" javaType="java.lang.Long" jdbcTypeCode="-5" label="Role Id" notNull="true" selected="true"/>
+<fk name="FK_1hjw31qvltj7v3wb5o31jsrd8">
+<fkcol colname="user_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="users_roles" tableref="user_account" updaterule="3"/>
+</fk>
+<fk name="FK_k2mq1ee4ob6uw649wgaus1ate">
+<fkcol colname="role_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="users_roles" tableref="role" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_1hjw31qvltj7v3wb5o31jsrd8" id="LINK_FK_FK_1hjw31qvltj7v3wb5o31jsrd8_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="users_roles" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="user_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_k2mq1ee4ob6uw649wgaus1ate" id="LINK_FK_FK_k2mq1ee4ob6uw649wgaus1ate_O" inverseSideOf="" javaName="role" javaType="Role" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="users_roles" targetEntity="Role" targetTableName="role" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="role_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+<table catalog="torneo" databaseType="TABLE" javaBean="Verificationtoken" name="verificationtoken" schema="">
+<column dbAutoIncremented="true" dbDefaultValue="" dbName="id" dbNotNull="true" dbPosition="1" dbPrimaryKey="true" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="id" javaType="java.lang.Long" jdbcTypeCode="-5" label="Id" notNull="true" selected="true"/>
+<column dateType="DT" dbDefaultValue="" dbName="expiryDate" dbNotNull="false" dbPosition="2" dbSize="19" dbTypeName="DATETIME" inputType="" javaName="expirydate" javaType="java.util.Date" jdbcTypeCode="93" label="Expirydate" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbName="token" dbNotNull="false" dbPosition="3" dbSize="255" dbTypeName="VARCHAR" inputType="text" javaName="token" javaType="java.lang.String" jdbcTypeCode="12" label="Token" maxLength="255" notNull="false" selected="true"/>
+<column dbDefaultValue="" dbForeignKey="true" dbName="user_id" dbNotNull="true" dbPosition="4" dbSize="19" dbTypeName="BIGINT" inputType="number" javaName="userId" javaType="java.lang.Long" jdbcTypeCode="-5" label="User Id" notNull="true" selected="true"/>
+<fk name="FK_VERIFY_USER">
+<fkcol colname="user_id" colref="id" deferrable="7" deleterule="3" sequence="1" tablename="verificationtoken" tableref="user_account" updaterule="3"/>
+</fk>
+<link cardinality="ManyToOne" cascade="" fetch="DEFAULT" foreignKeyName="FK_VERIFY_USER" id="LINK_FK_FK_VERIFY_USER_O" inverseSideOf="" javaName="userAccount" javaType="UserAccount" joinTableName="" mappedBy="" optional="UNDEFINED" owningSide="true" sourceTableName="verificationtoken" targetEntity="UserAccount" targetTableName="user_account" used="true">
+<joinColumns>
+<joinColumn insertable="false" name="user_id" nullable="true" referencedColumnName="id" unique="false" updatable="false"/>
+</joinColumns>
+</link>
+</table>
+</tableList>
+</root>

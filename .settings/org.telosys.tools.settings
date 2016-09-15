@@ -1,0 +1,5 @@
+#Telosys plugin properties
+#Thu Sep 08 17:23:04 CEST 2016
+bundle.boot.staticResourcesCopied=true
+bundle.model.staticResourcesCopied=true
+bundle.test.staticResourcesCopied=true

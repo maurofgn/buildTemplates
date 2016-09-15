@@ -1,0 +1,21 @@
+package ${target.javaPackageFromFolder(${TEST_SRC})};
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import ${ROOT_PKG}.configuration.Application;
+import org.springframework.boot.test.context.SpringBootTest;			//to use with Spring Boot 1.4.0
+//import org.springframework.boot.test.SpringApplicationConfiguration; 	//to use with Spring Boot 1.3.7.RELEASE
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@SpringBootTest(classes = Application.class)							//to use with Spring Boot 1.4.0
+//@SpringApplicationConfiguration(classes = Application.class)			//to use with Spring Boot 1.3.7.RELEASE
+@WebAppConfiguration
+public class ApplicationTests {
+
+	@Test
+	public void contextLoads() {
+	}
+
+}
